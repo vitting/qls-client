@@ -1,15 +1,9 @@
 @import "../../../scss/variables";
-
-.qls-flex {
-    display: flex;
-}
+@import "../../../scss/elements";
 
 .qls-board {
     border-bottom: 2px solid $qls-border-color;
-    color: $qls-text-color;
-    width: $qls-size-100vw;
     padding-bottom: $qls-size-1vw;
-    background-color: $qls-bg-color;
     
     .qls-board-bg {
         flex-direction: column;

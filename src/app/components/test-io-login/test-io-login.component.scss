@@ -1,0 +1,24 @@
+@import "../../../scss/variables";
+@import "../../../scss/elements";
+
+.qls-login {
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 2px solid $qls-border-color;
+    padding-bottom: $qls-size-1vw;
+
+    .qls-login-form {
+        width: 60vw;
+    }
+
+    .qls-login-title {
+        text-align: center;
+        margin-bottom: $qls-size-1vw;
+    }
+    
+    .qls-login-form {
+        button {
+            margin-top: $qls-size-1vw;
+        }
+    }
+}

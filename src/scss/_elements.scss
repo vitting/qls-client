@@ -1,0 +1,23 @@
+.qls-flex {
+    display: flex;
+}
+
+.qls-title {
+    font-size: 1.5rem;
+}
+
+.qls-btn {
+    background-color: $qls-bg-color;
+    color: $qls-text-color;
+    border-color: $qls-border-color;
+}
+
+.qls-bg {
+    color: $qls-text-color;
+    width: $qls-size-100vw;
+    background-color: $qls-bg-color;
+}
+
+.qls-flex-justify-space-between {
+    justify-content: space-between;
+}
