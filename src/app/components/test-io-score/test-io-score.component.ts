@@ -8,38 +8,46 @@ import Socket = SocketIOClient.Socket;
   styleUrls: ["./test-io-score.component.scss"]
 })
 export class TestIoScoreComponent implements OnInit {
-  public title = "Silkeborg Beachvolley Cup - Semifinale";
-  public currentSet = 2;
-  public setResultTeamA = 1;
-  public setResultTeamB = 0;
-  public nameTeamA = "Laura og Camilla";
-  public nameTeamB = "Trine og Daniella";
-  public currentPointsTeamA = 10;
-  public currentPointsTeamB = 9;
-  public currentTimeoutTeamA = 1;
-  public currentTimeoutTeamB = 0;
+  public data = {
+    title: "Silkeborg Beachvolley Cup - Semifinale",
+    currentSet: 2,
+    setResultTeamA: 1,
+    setResultTeamB: 0,
+    nameTeamA: "Laura og Camilla",
+    nameTeamB: "Trine og Daniella",
+    currentPointsTeamA: 10,
+    currentPointsTeamB: 9,
+    currentTimeoutTeamA: 1,
+    currentTimeoutTeamB: 0
+  };
+
   public timeoutMax = 2;
+  public isControlsHidden = true;
+  public isStartButtonHidden = false;
 
   private chatSocket: Socket = null;
   
   constructor() { }
 
   ngOnInit() {
-    // this.chatSocket = socketIo("http://localhost:3000");
-
-    // this.chatSocket.on("connect", () => {
-    //   console.log("CONNECTED");
-
-    //   this.chatSocket.on("message_client", (msg) => {
-    //     console.log(msg);
-    //   });
-  
-    //   this.chatSocket.emit("message_server", "HULLLUU", (data) => {
-    //     console.log(data);
-    //   });
-    // });
-
     
   }
 
+  startMatch() {
+    console.log("Match started");
+    this.isControlsHidden = false;
+    this.isStartButtonHidden = true;
+  }
+
+  points(team: string, action: string) {
+    console.log("Points Team " + team + " " + action);
+  }
+
+  timeouts(team: string, action: string) {
+    console.log("Timeouts Team " + team + " " + action);
+  }
+
+  winner(team: string, action: string) {
+    console.log("Winner Team " + team + " " + action);
+  }
 }

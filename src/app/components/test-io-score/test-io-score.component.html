@@ -1,34 +1,101 @@
-<div class="qls-bg qls-board">
-  <div class="qls-flex qls-board-bg">
-    <div class="qls-board-title qls-title">{{title}}</div>
-    <div class="qls-board-set">
-      <div>Set {{currentSet}}</div>
-    </div>
-    <div class="qls-flex qls-board-team-container">
-      <div class="qls-board-team qls-board-team-a">
-        <div class="qls-board-set-result-team-a">{{setResultTeamA}}</div>
-        <div class="qls-board-team-name qls-board-team-name-a">{{nameTeamA}}</div>
-        <div class="qls-flex qls-board-result">
-          <div class="qls-board-header">Points</div>
-          <div class="qls-board-points">{{currentPointsTeamA}}</div>
+<div class="qls-board-container qls-bg">
+  <div class="qls-board">
+      <div class="qls-flex qls-board-bg">
+        <div class="qls-board-title qls-title">{{data.title}}</div>
+        <div class="qls-board-set">
+          <div>Set {{data.currentSet}}</div>
         </div>
-        <div class="qls-flex qls-board-timeouts">
-          <div class="qls-board-timeouts-header">Timeouts</div>
-          <div class="qls-board-timeouts-number">{{currentTimeoutTeamA}} | {{timeoutMax}}</div>
+        <div class="qls-flex qls-board-team-container">
+          <div class="qls-board-team qls-board-team-a">
+            <div class="qls-board-set-result-team-a">{{data.setResultTeamA}}</div>
+            <div class="qls-board-team-name qls-board-team-name-a">{{data.nameTeamA}}</div>
+            <div class="qls-flex qls-board-result">
+              <div class="qls-board-header">Points</div>
+              <div class="qls-board-points">{{data.currentPointsTeamA}}</div>
+            </div>
+            <div class="qls-flex qls-board-timeouts">
+              <div class="qls-board-timeouts-header">Timeouts</div>
+              <div class="qls-board-timeouts-number">{{data.currentTimeoutTeamA}} | {{timeoutMax}}</div>
+            </div>
+          </div>
+          <div class="qls-board-team qls-board-team-b">
+              <div class="qls-board-set-result-team-b">{{data.setResultTeamB}}</div>
+            <div class="qls-board-team-name qls-board-team-name-b">{{data.nameTeamB}}</div>
+            <div class="qls-flex qls-board-result">
+                <div class="qls-board-header">Points</div>
+                <div class="qls-board-points">{{data.currentPointsTeamB}}</div>
+            </div>
+            <div class="qls-flex qls-board-timeouts">
+              <div class="qls-board-timeouts-header">Timeouts</div>
+              <div class="qls-board-timeouts-number">{{data.currentTimeoutTeamB}} | {{timeoutMax}}</div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="qls-board-team qls-board-team-b">
-          <div class="qls-board-set-result-team-b">{{setResultTeamB}}</div>
-        <div class="qls-board-team-name qls-board-team-name-b">{{nameTeamB}}</div>
-        <div class="qls-flex qls-board-result">
-            <div class="qls-board-header">Points</div>
-            <div class="qls-board-points">{{currentPointsTeamB}}</div>
+    </div>
+    <div class="qls-board-admin">
+      <div class="qls-board-admin-start qls-flex qls-flex-justify-center" [class.qls-display-none]="isStartButtonHidden">
+        <button (click)="startMatch()" class="btn qls-btn qls-spacer">Start Match</button>
+      </div>
+      <div class="qls-board-admin-controls qls-flex" [class.qls-display-none]="isControlsHidden">
+        <div class="qls-board-admin-team-a">
+          <div>
+            <div class="qls-board-admin-title qls-text-align-center">Points</div>
+            <div class="qls-flex qls-flex-justify-space-between">
+              <button (click)="points('a', 'add')" class="qls-btn qls-btn-round">+</button>
+              <button (click)="points('a', 'remove')" class="qls-btn qls-btn-round">-</button>
+            </div>
+          </div>     
+          <div>
+            <div class="qls-board-admin-title qls-text-align-center">Timeouts</div>
+            <div class="qls-flex qls-flex-justify-space-between">
+              <button (click)="timeouts('a', 'add')" class="qls-btn qls-btn-round">+</button>
+              <button (click)="timeouts('a', 'remove')" class="qls-btn qls-btn-round">-</button>
+            </div>
+          </div>
+          <div>
+              <div class="qls-board-admin-title qls-text-align-center">Winner</div>
+              <div class="qls-flex qls-flex-justify-center qls-flex-direction">
+                <div class="qls-spacer qls-flex qls-flex-justify-space-between">
+                    <button (click)="winner('a', 'set')" class="btn qls-btn qls-btn-square">Set</button>
+                    <button (click)="winner('a', 'setundo')" class="btn qls-btn qls-btn-square">Undo</button>
+                </div>
+                <div class="qls-spacer qls-flex qls-flex-justify-space-between">
+                    <button (click)="winner('a', 'match')" class="btn qls-btn qls-btn-square">Match</button>
+                    <button (click)="winner('a', 'matchundo')" class="btn qls-btn qls-btn-square">Undo</button>
+                </div>
+              </div>
+          </div>     
         </div>
-        <div class="qls-flex qls-board-timeouts">
-          <div class="qls-board-timeouts-header">Timeouts</div>
-          <div class="qls-board-timeouts-number">{{currentTimeoutTeamB}} | {{timeoutMax}}</div>
+        <div class="qls-board-admin-team-b">
+          <div>
+            <div class="qls-board-admin-title qls-text-align-center">Points</div>
+            <div class="qls-flex qls-flex-justify-space-between">
+              <button (click)="points('b', 'add')" class="qls-btn qls-btn-round">+</button>
+              <button (click)="points('b', 'remove')" class="qls-btn qls-btn-round">-</button>
+            </div>
+          </div>     
+          <div>
+            <div class="qls-board-admin-title qls-text-align-center">Timeouts</div>
+            <div class="qls-flex qls-flex-justify-space-between">
+              <button (click)="timeouts('b', 'add')" class="qls-btn qls-btn-round">+</button>
+              <button (click)="timeouts('b', 'remove')" class="qls-btn qls-btn-round">-</button>
+            </div>
+          </div>     
+          <div>
+            <div class="qls-board-admin-title qls-text-align-center">Winner</div>
+            <div class="qls-flex qls-flex-justify-center qls-flex-direction">
+              <div class="qls-spacer qls-flex qls-flex-justify-space-between">
+                  <button (click)="winner('b', 'set')" class="btn qls-btn qls-btn-square">Set</button>
+                  <button (click)="winner('a', 'setundo')" class="btn qls-btn qls-btn-square">Undo</button>
+              </div>
+              <div class="qls-spacer qls-flex qls-flex-justify-space-between">
+                  <button (click)="winner('a', 'match')" class="btn qls-btn qls-btn-square">Match</button>
+                  <button (click)="winner('a', 'matchundo')" class="btn qls-btn qls-btn-square">Undo</button>
+              </div>
+            </div>
+          </div>     
         </div>
       </div>
     </div>
-  </div>
 </div>

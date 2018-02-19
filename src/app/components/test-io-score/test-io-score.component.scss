@@ -1,6 +1,10 @@
 @import "../../../scss/variables";
 @import "../../../scss/elements";
 
+.qls-board-container {
+    height: 100vh;
+}
+
 .qls-board {
     border-bottom: 2px solid $qls-border-color;
     padding-bottom: $qls-size-1vw;
@@ -25,10 +29,12 @@
         .qls-board-team-container {
             .qls-board-team-a {
                 border-right: 1px solid $qls-border-color;
+                background-color: darken($qls-bg-color, 10%);
             }
             
             .qls-board-team-b {
                 border-left: 1px solid $qls-border-color;
+                background-color: lighten($qls-bg-color, 10%);
             }
     
             .qls-board-team {
@@ -82,5 +88,28 @@
                 }
             }
         }
+    }
+}
+
+.qls-board-admin {
+    color: $qls-text-color;
+
+    .qls-board-admin-team-a, .qls-board-admin-team-b {
+        flex: 1;
+        padding: 10px 20px 10px 20px;
+    }
+
+    .qls-board-admin-team-a {
+        background-color: darken($qls-bg-color, 10%);
+        border-right: 1px solid $qls-border-color;
+    }
+
+    .qls-board-admin-team-b {
+        background-color: lighten($qls-bg-color, 10%);
+        border-left: 1px solid $qls-border-color;
+    }
+
+    .qls-board-admin-title {
+        font-size: $qls-size-2vw;
     }
 }

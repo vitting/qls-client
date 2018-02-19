@@ -12,6 +12,19 @@
     border-color: $qls-border-color;
 }
 
+.qls-btn-round {
+    border-radius: 50%;
+    border: 2px solid white;
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+    line-height: 2rem;
+}
+
+.qls-btn-square {
+    min-width: 70px;
+}
+
 .qls-bg {
     color: $qls-text-color;
     width: $qls-size-100vw;
@@ -20,4 +33,28 @@
 
 .qls-flex-justify-space-between {
     justify-content: space-between;
+}
+
+.qls-flex-justify-center {
+    justify-content: center;
+}
+
+.qls-flex-direction {
+    flex-direction: column;
+}
+
+.qls-text-align-center {
+    text-align: center;
+}
+
+.qls-spacer {
+    margin: 10px 0;
+}
+
+.qls-display-none {
+    display: none;
+}
+
+.qls-display-block {
+    display: block;
 }
