@@ -1,0 +1,20 @@
+@import "../../../../scss/variables";
+@import "../../../../scss/elements";
+
+.qls-matches {
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 2px solid $qls-border-color;
+    padding-bottom: $qls-size-1vw;
+
+    .qls-matches-title {
+        text-align: center;
+        margin-bottom: $qls-size-1vw;
+    }
+
+    .qls-matches-form {
+        button {
+            margin-top: $qls-size-1vw;
+        }
+    }
+}

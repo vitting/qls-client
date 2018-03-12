@@ -1,12 +1,12 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
-import { TestIoScoreComponent } from "./test-io-score.component";
+import { NavbarComponent } from "./navbar.component";
 
 const routes: Routes = [
     {
-      path: "testioscore",
-      component: TestIoScoreComponent
+      path: "navbar",
+      component: NavbarComponent
     },
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class TestIoScoreRoutingModule { }
+export class NavbarRoutingModule { }

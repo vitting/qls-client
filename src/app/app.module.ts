@@ -1,13 +1,17 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {AppRoutingModule} from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { TestIoModule } from "./components/test-io/test-io.module";
-import { TestIoAdminModule } from "./components/test-io-admin/test-io-admin.module";
-import { TestIoLoginModule } from "./components/test-io-login/test-io-login.module";
-import { TestIoNewUserModule } from "./components/test-io-newuser/test-io-newuser.module";
-import { TestIoScoreModule } from "./components/test-io-score/test-io-score.module";
+import { NavbarModule } from "./components/navbar/navbar.module";
+import { MatchModule } from "./components/match/match.module";
+import { AddEventModule } from "./components/admin/add_event/add_event.module";
+import { AddMatchModule } from "./components/admin/add_match/add_match.module";
+import { DashboardModule } from "./components/admin/dashboard/dashboard.module";
+import { LoginModule } from "./components/login/login.module";
+import { ScoreModule } from "./components/admin/score/score.module";
+import { SignupModule } from "./components/signup/signup.module";
 
 
 @NgModule({
@@ -15,15 +19,20 @@ import { TestIoScoreModule } from "./components/test-io-score/test-io-score.modu
     AppComponent,
   ],
   imports: [
+    NgbModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
-    TestIoModule,
-    TestIoAdminModule,
-    TestIoLoginModule,
-    TestIoNewUserModule,
-    TestIoScoreModule
+    NavbarModule,
+    MatchModule,
+    AddEventModule,
+    AddMatchModule,
+    DashboardModule,
+    LoginModule,
+    ScoreModule,
+    SignupModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

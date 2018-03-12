@@ -3,11 +3,11 @@ import * as socketIo from "socket.io-client";
 import Socket = SocketIOClient.Socket;
 
 @Component({
-  selector: "app-test-io-score",
-  templateUrl: "./test-io-score.component.html",
-  styleUrls: ["./test-io-score.component.scss"]
+  selector: "qls-admin-score",
+  templateUrl: "./score.component.html",
+  styleUrls: ["./score.component.scss"]
 })
-export class TestIoScoreComponent implements OnInit {
+export class ScoreComponent implements OnInit {
   public data = {
     title: "Silkeborg Beachvolley Cup - Semifinale",
     currentSet: 2,

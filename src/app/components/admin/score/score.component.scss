@@ -1,5 +1,5 @@
-@import "../../../scss/variables";
-@import "../../../scss/elements";
+@import "../../../../scss/variables";
+@import "../../../../scss/elements";
 
 .qls-board-container {
     height: 100vh;
@@ -18,6 +18,7 @@
 
         .qls-board-set {
             font-size: $qls-size-2vw;
+            margin-bottom: 10px;
         }
          
         .qls-board-title {

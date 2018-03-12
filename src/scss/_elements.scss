@@ -4,6 +4,11 @@
 
 .qls-title {
     font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.qls-underline {
+    text-decoration: underline;
 }
 
 .qls-btn {
@@ -25,10 +30,26 @@
     min-width: 70px;
 }
 
+.qls-btn-square-90 {
+    min-width: 90px;
+}
+
 .qls-bg {
     color: $qls-text-color;
     width: $qls-size-100vw;
     background-color: $qls-bg-color;
+}
+
+.qls-bg-100vh {
+    height: 100vh;
+}
+
+.qls-form-width {
+    @media only screen and (max-device-width : 375px) {
+        width:90vw;
+    }
+
+    width: 60vw;
 }
 
 .qls-flex-justify-space-between {
@@ -43,6 +64,10 @@
     flex-direction: column;
 }
 
+.qls-flex-align-self-center {
+    align-self: center;
+}
+
 .qls-text-align-center {
     text-align: center;
 }
@@ -51,10 +76,26 @@
     margin: 10px 0;
 }
 
+.qls-spacer-padding {
+    padding: 10px 0;
+}
+
 .qls-display-none {
     display: none;
 }
 
 .qls-display-block {
     display: block;
+}
+
+.qls-form-control-time {
+    width: 100px;
+}
+
+.qls-form-control-date {
+    width: 180px;
+}
+
+.qls-form-plaintext {
+    padding: .375rem .40rem;
 }

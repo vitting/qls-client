@@ -1,12 +1,12 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
-import { TestIoComponent } from "./test-io.component";
+import { AddMatchComponent } from "./add_match.component";
 
 const routes: Routes = [
     {
-      path: "testio",
-      component: TestIoComponent
+      path: "addmatch",
+      component: AddMatchComponent
     },
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class TestIoRoutingModule { }
+export class AddMatchRoutingModule { }

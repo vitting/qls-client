@@ -1,0 +1,67 @@
+<div class="qls-flex qls-bg qls-matches qls-bg-100vh">
+  <div class="qls-matches-title qls-title">Matches</div>
+  <div class="qls-matches-controls qls-spacer">
+    <button type="button" class="btn qls-btn">Add</button>
+    <button type="button" class="btn qls-btn">Edit</button>
+    <button type="button" class="btn qls-btn">Remove</button>
+  </div>
+  <div class="qls-matches-currentmatches qls-matches-form qls-form-width">
+      <form>
+        <div class="form-group">
+          <label for="currentMatches">Your matches</label>
+          <select class="form-control" id="currentMatches">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+      </form>
+  </div>
+  <div class="qls-matches-form qls-form-width">
+    <form>
+      <div class="form-group">
+        <label for="categories">Categories</label>
+        <select class="form-control" id="categories">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Enter match name">
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text" class="form-control" id="description" name="description" placeholder="Enter description">
+      </div>
+      <div class="form-group">
+        <label for="start">Start</label>
+        <div class="qls-flex">
+          <input type="time" class="form-control qls-form-control-time" id="starttime" name="starttime">
+          <span class="qls-form-plaintext">-</span>
+          <input type="date" class="form-control qls-form-control-date" id="startdate" name="startdate">
+        </div>  
+      </div>
+      <div class="form-group">
+        <label for="endtime">End</label>
+        <div class="qls-flex">
+          <input type="time" class="form-control qls-form-control-time" id="endtime" name="endtime">
+          <span class="qls-form-plaintext">-</span>
+          <input type="date" class="form-control qls-form-control-date" id="enddate" name="enddate">
+        </div>  
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+          Use live comments
+        </label>
+      </div>
+      <button type="submit" class="btn qls-btn">Save</button>
+    </form>
+  </div>
+</div>
