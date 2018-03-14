@@ -1,14 +1,2 @@
 @import "../../../../scss/variables";
 @import "../../../../scss/elements";
-
-.qls-dashboard {
-    ul {
-        list-style: none;
-        padding: 0;
-
-        li {
-            font-size: $qls-size-2vw;
-            padding: 1vh 0;
-        }
-    }
-}

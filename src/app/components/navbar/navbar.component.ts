@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
   }
 
   myFunction() {
-    const x = document.getElementById("myTopnav");
+    const x = document.getElementById("qlsNav");
     if (x.className === "topnav") {
         x.className += " responsive";
     } else {

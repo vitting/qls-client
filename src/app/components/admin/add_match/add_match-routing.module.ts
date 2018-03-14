@@ -5,7 +5,7 @@ import { AddMatchComponent } from "./add_match.component";
 
 const routes: Routes = [
     {
-      path: "addmatch",
+      path: "admin/addmatch",
       component: AddMatchComponent
     },
 ];

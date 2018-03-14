@@ -5,7 +5,7 @@ import { AddEventComponent } from "./add_event.component";
 
 const routes: Routes = [
     {
-      path: "addevent",
+      path: "admin/addevent",
       component: AddEventComponent
     },
 ];

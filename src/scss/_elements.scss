@@ -34,14 +34,8 @@
     min-width: 90px;
 }
 
-.qls-bg {
-    color: $qls-text-color;
-    width: $qls-size-100vw;
-    background-color: $qls-bg-color;
-}
-
-.qls-bg-100vh {
-    height: 100vh;
+.qls-bg-active {
+    background-color: darken($qls-bg-color, 10%);
 }
 
 .qls-form-width {
@@ -98,4 +92,20 @@
 
 .qls-form-plaintext {
     padding: .375rem .40rem;
+}
+
+.qls-list {
+    ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+            font-size: $qls-size-2vw;
+            padding: 0.8vh 0;
+        }
+    }
+}
+
+.qls-icon {
+    color: $qls-text-color;
 }

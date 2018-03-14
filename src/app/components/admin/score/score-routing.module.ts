@@ -5,7 +5,7 @@ import { ScoreComponent } from "./score.component";
 
 const routes: Routes = [
     {
-      path: "score",
+      path: "admin/score",
       component: ScoreComponent
     },
 ];

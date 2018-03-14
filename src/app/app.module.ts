@@ -2,7 +2,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
-import {AppRoutingModule} from "./app-routing.module";
+import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { NavbarModule } from "./components/navbar/navbar.module";
 import { MatchModule } from "./components/match/match.module";
@@ -12,7 +12,7 @@ import { DashboardModule } from "./components/admin/dashboard/dashboard.module";
 import { LoginModule } from "./components/login/login.module";
 import { ScoreModule } from "./components/admin/score/score.module";
 import { SignupModule } from "./components/signup/signup.module";
-
+import { HomeModule } from "./components/home/home.module";
 
 @NgModule({
   declarations: [
@@ -29,7 +29,8 @@ import { SignupModule } from "./components/signup/signup.module";
     DashboardModule,
     LoginModule,
     ScoreModule,
-    SignupModule
+    SignupModule,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent],

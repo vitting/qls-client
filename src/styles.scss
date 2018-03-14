@@ -1,4 +1,8 @@
+@import "scss/_variables.scss";
+
 /* You can add global styles to this file, and also import other style files */
 body {
     font-family: 'Open Sans', sans-serif;
+    color: $qls-text-color;
+    background-color: $qls-bg-color;
 }

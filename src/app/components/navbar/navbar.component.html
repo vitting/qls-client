@@ -1,7 +1,11 @@
-<div class="topnav" id="myTopnav">
-  <a href="#home" class="active">Home</a>
-  <a href="#news">News</a>
-  <a href="#contact">Contact</a>
-  <a href="#about">About</a>
+<div class="topnav" id="qlsNav">
+  <a [routerLink]="['/home']" [routerLinkActive]="'active'">Home</a>
+  <a [routerLink]="['/login']" [routerLinkActive]="'active'">Login</a>
+  <a [routerLink]="['/signup']" [routerLinkActive]="'active'">Signup</a>
+  <a [routerLink]="['/match']" [routerLinkActive]="'active'">Match</a>
+  <a [routerLink]="['/admin/addevent']" [routerLinkActive]="'active'">AddEvent</a>
+  <a [routerLink]="['/admin/addmatch']" [routerLinkActive]="'active'">AddMatch</a>
+  <a [routerLink]="['/admin/dashboard']" [routerLinkActive]="'active'">Dashboard</a>
+  <a [routerLink]="['/admin/score']" [routerLinkActive]="'active'">Score</a>
   <a href="javascript:void(0);" class="icon" (click)="myFunction()">&#9776;</a>
 </div>

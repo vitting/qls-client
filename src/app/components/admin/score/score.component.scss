@@ -1,13 +1,9 @@
 @import "../../../../scss/variables";
 @import "../../../../scss/elements";
 
-.qls-board-container {
-    height: 100vh;
-}
-
 .qls-board {
     border-bottom: 2px solid $qls-border-color;
-    padding-bottom: $qls-size-1vw;
+    // padding-bottom: $qls-size-1vw;
     
     .qls-board-bg {
         flex-direction: column;
@@ -30,12 +26,12 @@
         .qls-board-team-container {
             .qls-board-team-a {
                 border-right: 1px solid $qls-border-color;
-                background-color: darken($qls-bg-color, 10%);
+                // background-color: darken($qls-bg-color, 10%);
             }
             
             .qls-board-team-b {
                 border-left: 1px solid $qls-border-color;
-                background-color: lighten($qls-bg-color, 10%);
+                // background-color: lighten($qls-bg-color, 10%);
             }
     
             .qls-board-team {
