@@ -13,6 +13,7 @@ import { LoginModule } from "./components/login/login.module";
 import { ScoreModule } from "./components/admin/score/score.module";
 import { SignupModule } from "./components/signup/signup.module";
 import { HomeModule } from "./components/home/home.module";
+import { PopupModule } from "./components/popup/popup.module";
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { HomeModule } from "./components/home/home.module";
     BrowserModule,
     AppRoutingModule,
     NavbarModule,
+    PopupModule,
     MatchModule,
     AddEventModule,
     AddMatchModule,

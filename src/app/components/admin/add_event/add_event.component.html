@@ -6,46 +6,49 @@
     <button type="button" class="btn qls-btn">Remove</button>
   </div>
   <div class="qls-addevent-currentevents qls-addevent-form qls-form-width">
-      <form>
+      <form [formGroup]="currentEventForm" novalidate>
         <div class="form-group">
-          <label for="currentEvents">Your events</label>
-          <select class="form-control" id="currentEvents">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+          <label for="currentEvent">Your events</label>
+          <select class="form-control" id="currentEvent" name="currentEvent" [(ngModel)]="currentEvent" formControlName="currentEvent">
+            <option id="1">1</option>
+            <option id="2">2</option>
+            <option id="3">3</option>
+            <option id="4">4</option>
+            <option id="5">5</option>
           </select>
         </div>
       </form>
   </div>
   <div class="qls-addevent-form qls-form-width">
-    <form>
+    <form [formGroup]="addeventForm" (ngSubmit)="submit()" novalidate>
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" name="name" placeholder="Enter event name">
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="model.name" formControlName="name" placeholder="Enter event name">
       </div>
       <div class="form-group">
         <label for="description">Description</label>
-        <input type="text" class="form-control" id="description" name="description" placeholder="Enter description">
+        <input type="text" class="form-control" id="description" name="description" [(ngModel)]="model.description" formControlName="description" placeholder="Enter description">
       </div>
       <div class="form-group">
         <label for="start">Start</label>
         <div class="qls-flex">
-          <input type="time" class="form-control qls-form-control-time" id="starttime" name="starttime">
+          <input type="time" class="form-control qls-form-control-time" id="starttime" name="starttime" [(ngModel)]="model.starttime" formControlName="starttime">
           <span class="qls-form-plaintext">-</span>
-          <input type="date" class="form-control qls-form-control-date" id="startdate" name="startdate">
+          <input type="date" class="form-control qls-form-control-date" id="startdate" name="startdate" [(ngModel)]="model.startdate" formControlName="startdate">
         </div>  
       </div>
       <div class="form-group">
         <label for="endtime">End</label>
         <div class="qls-flex">
-          <input type="time" class="form-control qls-form-control-time" id="endtime" name="endtime">
+          <input type="time" class="form-control qls-form-control-time" id="endtime" name="endtime" [(ngModel)]="model.endtime" formControlName="endtime">
           <span class="qls-form-plaintext">-</span>
-          <input type="date" class="form-control qls-form-control-date" id="enddate" name="enddate">
+          <input type="date" class="form-control qls-form-control-date" id="enddate" name="enddate" [(ngModel)]="model.enddate" formControlName="enddate">
         </div>  
       </div>
       <button type="submit" class="btn qls-btn">Save</button>
     </form>
   </div>
 </div>
+
+<p>Value: {{ addeventForm.value | json }}</p>
+<p>Validation status: {{ addeventForm.status }}</p>

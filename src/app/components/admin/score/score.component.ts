@@ -1,6 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import * as socketIo from "socket.io-client";
-import Socket = SocketIOClient.Socket;
 
 @Component({
   selector: "qls-admin-score",
@@ -24,8 +22,6 @@ export class ScoreComponent implements OnInit {
   public timeoutMax = 2;
   public isControlsHidden = true;
   public isStartButtonHidden = false;
-
-  private chatSocket: Socket = null;
   
   constructor() { }
 

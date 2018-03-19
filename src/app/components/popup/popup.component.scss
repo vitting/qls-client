@@ -1,0 +1,36 @@
+@import "../../../scss/variables";
+@import "../../../scss/elements";
+
+.qls-popup-container {
+    background-color: cornflowerblue;
+    padding: 10px 0;
+
+    .qls-popup-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    .qls-popup-body {
+        font-size: 1.2rem;
+        padding: 10px 0 20px 0;
+    }
+
+    .qls-popup-buttons {
+        button {
+            background-color: cornflowerblue;
+            color: $qls-text-color;
+            border-color: $qls-border-color;
+            width: 150px;
+        }
+
+        button:first-child {
+            margin-right: 20px;
+        }
+
+
+        button.display-yes-button {
+            display: none;
+        }        
+    }
+}
+

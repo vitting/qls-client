@@ -2,12 +2,15 @@
   <div class="qls-flex qls-board-bg">
     <div class="qls-board-title qls-title">{{title}}</div>
     <div class="qls-board-set">
-      <div>Set {{currentSet}}</div>
+      <div>
+        <i class="fa fa-refresh fa-pulse qls-update-icon qls-update-icon-left" aria-hidden="true"></i>
+        <span>Set {{currentSet}}</span>
+        <i class="fa fa-refresh fa-pulse qls-update-icon qls-update-icon-right" aria-hidden="true"></i></div>
     </div>
     <div class="qls-flex qls-board-team-container">
       <div class="qls-board-team qls-board-team-a">
         <div class="qls-board-set-result-team-a">{{setResultTeamA}}</div>
-        <div class="qls-board-team-name qls-board-team-name-a">{{nameTeamA}}</div>
+        <div [ngClass]="{'qls-board-team-active': teamAActive}" class="qls-board-team-name qls-board-team-name-a">{{nameTeamA}}</div>
         <div class="qls-flex qls-board-result">
           <div class="qls-board-header">Points</div>
           <div class="qls-board-points">{{currentPointsTeamA}}</div>
@@ -19,7 +22,7 @@
       </div>
       <div class="qls-board-team qls-board-team-b">
           <div class="qls-board-set-result-team-b">{{setResultTeamB}}</div>
-        <div class="qls-board-team-name qls-board-team-name-b">{{nameTeamB}}</div>
+        <div [ngClass]="{'qls-board-team-active': teamBActive}" class="qls-board-team-name qls-board-team-name-b">{{nameTeamB}}</div>
         <div class="qls-flex qls-board-result">
             <div class="qls-board-header">Points</div>
             <div class="qls-board-points">{{currentPointsTeamB}}</div>

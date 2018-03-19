@@ -1,7 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import * as socketIo from "socket.io-client";
-import Socket = SocketIOClient.Socket;
-import { NgbDateStruct } from "@ng-bootstrap/ng-bootstrap";
+import { FormGroup, FormBuilder } from "@angular/forms";
 
 @Component({
   selector: "qls-admin-addevent",
@@ -9,16 +7,40 @@ import { NgbDateStruct } from "@ng-bootstrap/ng-bootstrap";
   styleUrls: ["./add_match.component.scss"]
 })
 export class AddMatchComponent implements OnInit {
-  public startHH = "00";
-  constructor() { }
+  currentMatch = "";
+  model = {
+    "category": "",
+    "name": "",
+    "description": "",
+    "starttime": "",
+    "startdate": "",
+    "endtime": "",
+    "enddate": "",
+    "useLiveComments": false
+  };
+
+  currentMatchForm: FormGroup;
+  addMatchForm: FormGroup;
+  constructor(private _fb: FormBuilder) { }
 
   ngOnInit() {
-    
+    this.currentMatchForm = this._fb.group({
+      "currentMatch": ""
+    });
+
+    this.addMatchForm = this._fb.group({
+      "category": "",
+      "name": "",
+      "description": "",
+      "starttime": "",
+      "startdate": "",
+      "endtime": "",
+      "enddate": "",
+      "useLiveComments": false
+    });
   }
 
-  formatDate(date: any) {
-    if (parseInt(date.value, 10) < 10) {
-      date.value = "0" + date.value;
-    }
+  submit() {
+
   }
 }

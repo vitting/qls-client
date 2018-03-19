@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { PopupButtonsType } from "./components/popup/popup.enums";
 
 @Component({
   selector: "qls-root",
@@ -7,4 +8,9 @@ import { Component } from "@angular/core";
 })
 export class AppComponent {
   title = "app";
+  buttonsType: PopupButtonsType = PopupButtonsType.YesNo;
+
+  buttonResponse(value) {
+    console.log(value);
+  }
 }

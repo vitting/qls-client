@@ -1,7 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import * as socketIo from "socket.io-client";
-import Socket = SocketIOClient.Socket;
-import { NgbDateStruct } from "@ng-bootstrap/ng-bootstrap";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 @Component({
   selector: "qls-admin-addevent",
@@ -9,11 +7,36 @@ import { NgbDateStruct } from "@ng-bootstrap/ng-bootstrap";
   styleUrls: ["./add_event.component.scss"]
 })
 export class AddEventComponent implements OnInit {
-  model: NgbDateStruct;
+  currentEvent = 5;
+  model = {
+    "name": "",
+    "description": "",
+    "starttime": "18:00",
+    "startdate": "",
+    "endtime": "18:00",
+    "enddate": ""
+  };
+  currentEventForm: FormGroup;
+  addeventForm: FormGroup;
   
-  constructor() { }
+  constructor(private _fb: FormBuilder) { }
 
   ngOnInit() {
+    this.currentEventForm = this._fb.group({
+      "currentEvent": ""
+    });
+
+    this.addeventForm = this._fb.group({
+      "name": ["", Validators.required],
+      "description": "",
+      "starttime": "",
+      "startdate": "",
+      "endtime": "",
+      "enddate": ""
+    });
+  }
+
+  submit() {
     
   }
 }

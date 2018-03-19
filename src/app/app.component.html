@@ -1,4 +1,5 @@
 <qls-navbar></qls-navbar>
+<qls-popup [header]="'This is a header'" [body]="'This is the body message'" [buttons]="buttonsType" [show]="true" (response)="buttonResponse($event)"></qls-popup>
 <router-outlet></router-outlet>
 
 

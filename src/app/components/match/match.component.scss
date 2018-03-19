@@ -14,6 +14,17 @@
 
         .qls-board-set {
             font-size: $qls-size-2vw;
+            .qls-update-icon-left, .qls-update-icon-right {
+                display: none;
+            }
+
+            .qls-update-icon-left {
+                margin-right: 20px;
+            }
+
+            .qls-update-icon-right {
+                margin-left: 20px;
+            }
         }
          
         .qls-board-title {
@@ -52,10 +63,12 @@
                     font-size: $qls-size-4vw;
                     padding-bottom: $qls-size-2vw;
                 }
-                .qls-board-team-name-b {
+                
+                .qls-board-team-active {
                     text-decoration: underline;
-                    text-decoration-color: lighten($qls-bg-color, 40%);
+                    text-decoration-color: lighten($qls-bg-color, 30%);
                 }
+                
                 .qls-board-result {
                     justify-content: center;
                     

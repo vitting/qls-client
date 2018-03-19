@@ -8,17 +8,20 @@ import Socket = SocketIOClient.Socket;
   styleUrls: ["./match.component.scss"]
 })
 export class MatchComponent implements OnInit {
-  public title = "Silkeborg Beachvolley Cup - Semifinale";
-  public currentSet = 2;
-  public setResultTeamA = 1;
-  public setResultTeamB = 0;
-  public nameTeamA = "Laura og Camilla";
-  public nameTeamB = "Trine og Daniella";
-  public currentPointsTeamA = 10;
-  public currentPointsTeamB = 9;
-  public currentTimeoutTeamA = 1;
-  public currentTimeoutTeamB = 0;
-  public timeoutMax = 2;
+  title = "Silkeborg Beachvolley Cup - Semifinale";
+  currentSet = 2;
+  setResultTeamA = 1;
+  setResultTeamB = 0;
+  nameTeamA = "Laura og Camilla";
+  nameTeamB = "Trine og Daniella";
+  currentPointsTeamA = 10;
+  currentPointsTeamB = 9;
+  currentTimeoutTeamA = 1;
+  currentTimeoutTeamB = 0;
+  timeoutMax = 2;
+
+  teamAActive = false;
+  teamBActive = false;
 
   private chatSocket: Socket = null;
   
@@ -38,8 +41,29 @@ export class MatchComponent implements OnInit {
     //     console.log(data);
     //   });
     // });
+  }
 
-    
+  setActiveTeam(activeTeam: string = "none") {
+    if (activeTeam === "a") {
+      this.teamAActive = true;  
+      this.teamBActive = false;
+    } else if (activeTeam === "b") {
+      this.teamAActive = false;  
+      this.teamBActive = true;
+    } else {
+      this.teamAActive = false;  
+      this.teamBActive = false;
+    }
+  }
+
+  toogleActiveTeam() {
+    if (!this.teamAActive) {
+      this.teamAActive = true;  
+      this.teamBActive = false;
+    } else {
+      this.teamAActive = false;  
+      this.teamBActive = true;
+    }
   }
 
 }

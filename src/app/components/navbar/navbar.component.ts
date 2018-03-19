@@ -1,6 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import * as socketIo from "socket.io-client";
-import Socket = SocketIOClient.Socket;
 
 @Component({
   selector: "qls-navbar",

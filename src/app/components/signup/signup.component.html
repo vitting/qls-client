@@ -1,25 +1,27 @@
 <div class="qls-flex qls-newuser">
   <div class="qls-newuser-title qls-title qls-spacer-padding">Create new user</div>
   <div class="qls-newuser-form qls-form-width">
-    <form>
+    <form [formGroup]="signupForm" (ngSubmit)="submit()" novalidate>
       <div class="form-group">
         <label for="name">Name *</label>
-        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="model.name" formControlName="name" placeholder="Enter your name" required>
       </div>
       <div class="form-group">
         <label for="username">E-mail *</label>
-        <input type="email" class="form-control" id="username" name="username" placeholder="Enter e-mail">
+        <input type="email" class="form-control" id="username" name="username" [(ngModel)]="model.username" formControlName="username" placeholder="Enter username" required>
       </div>
       <div class="form-group">
         <label for="mobile">Mobile *</label>
-        <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Enter mobile number">
+        <input type="text" class="form-control" id="mobile" name="mobile" [(ngModel)]="model.mobile" formControlName="mobile" placeholder="Enter mobile number" required>
       </div>
       <div class="form-group">
         <label for="password">Password *</label>
-        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+        <input type="password" class="form-control" id="password" name="password" [(ngModel)]="model.password" formControlName="password" placeholder="Enter password" required>
       </div>
       <button type="submit" class="btn qls-btn">Save</button>
     </form>
   </div>
 </div>
 
+<p>Value: {{ signupForm.value | json }}</p>
+<p>Validation status: {{ signupForm.status }}</p>
