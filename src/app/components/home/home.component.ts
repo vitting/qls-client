@@ -4,6 +4,8 @@ import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/debounceTime";
 import "rxjs/add/operator/distinctUntilChanged";
+import { PopupService } from "../popup/popup.service";
+import { PopupButtonsType, PopupButtonResponse } from "../popup/popup.enums";
 
 const states = ["Alabama", "Alaska", "American Samoa", "Arizona", "Arkansas", "California", "Colorado",
   "Connecticut", "Delaware", "District Of Columbia", "Federated States Of Micronesia", "Florida", "Georgia",
@@ -32,15 +34,31 @@ export class HomeComponent implements OnInit {
   }
   
 
-  constructor(private _fb: FormBuilder) { }
+  constructor(private _fb: FormBuilder, private popupService: PopupService) { }
 
   ngOnInit() {
     this.searchForMatchesForm = this._fb.group({
       "searchForMatches": ["", Validators.required]
     });
+
+    this.popupService.popupResponse$.subscribe((response: PopupButtonResponse) => {
+      console.log(response);
+    });
   }
 
   submit() {
     
+  }
+
+  btn1() {
+    this.popupService.popupMessage(true, {
+      header: "Wow a header",
+      body: "Now i have set at new body",
+      buttons: PopupButtonsType.Ok
+    });
+  }
+
+  btn2() {
+    this.popupService.popupMessage(false);
   }
 }
