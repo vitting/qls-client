@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, Params } from "@angular/router";
+import "rxjs/add/operator/map";
 
 @Component({
   selector: "qls-admin-score",
@@ -23,10 +25,14 @@ export class ScoreComponent implements OnInit {
   public isControlsHidden = true;
   public isStartButtonHidden = false;
   
-  constructor() { }
+  constructor(private _route: ActivatedRoute) { }
 
   ngOnInit() {
-    
+    this._route.paramMap.map((params: Params) => {
+      return params.get("id");
+    }).subscribe((id: string) => {
+      console.log(id);
+    });
   }
 
   startMatch() {

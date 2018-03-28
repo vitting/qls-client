@@ -1,0 +1,45 @@
+@import "../../../scss/variables";
+@import "../../../scss/elements";
+
+.qls-share {
+    z-index: 10;
+    border: 1px solid black;
+    background-color: $qls-bg-popup-color;
+    color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 100px auto 0 auto;
+    width: 60%;
+    padding: 10px 10px 20px 10px;
+    border-radius: 4px;
+
+    label {
+        color: $qls-text-color;
+    }
+}
+
+.qls-share-email-container {
+    background-color: white;
+    width: 100%;
+    min-height: 45px;
+    padding: 5px 0 0 0;
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+    .qls-share-email-tag {
+        display: inline-block;
+        background-color: $qls-bg-popup-color;
+        color: $qls-text-color;
+        padding: 4px;
+        border-radius: 5px;
+        margin-bottom: 5px;
+        margin-left: 5px;
+        
+        i {
+            font-size: 1.4rem;
+            margin-left: 5px;
+        }
+    }
+}

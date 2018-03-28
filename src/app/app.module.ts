@@ -14,6 +14,7 @@ import { ScoreModule } from "./components/admin/score/score.module";
 import { SignupModule } from "./components/signup/signup.module";
 import { HomeModule } from "./components/home/home.module";
 import { PopupModule } from "./components/popup/popup.module";
+import { ShareModule } from "./components/share/share.module";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { PopupModule } from "./components/popup/popup.module";
     LoginModule,
     ScoreModule,
     SignupModule,
-    HomeModule
+    HomeModule,
+    ShareModule
   ],
   providers: [],
   bootstrap: [AppComponent],

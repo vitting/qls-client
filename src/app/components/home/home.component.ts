@@ -24,7 +24,29 @@ const states = ["Alabama", "Alaska", "American Samoa", "Arizona", "Arkansas", "C
 export class HomeComponent implements OnInit {
   searchForMatches = "";
   searchForMatchesForm: FormGroup;
-  
+  matchesToday = [
+    {
+      id: "43533-34234-wer234234",
+      name: "Silkeborg Beachvolley 2018 Kamp1"
+    },
+    {
+      id: "43533-34234-wer234235",
+      name: "Silkeborg Beachvolley 2018 Kamp2"
+    },
+    {
+      id: "43533-34234-wer234236",
+      name: "Silkeborg Beachvolley 2018 Kamp3"
+    },
+    {
+      id: "43533-34234-wer234237",
+      name: "Silkeborg Beachvolley 2018 Kamp4"
+    },
+    {
+      id: "43533-34234-wer234238",
+      name: "Silkeborg Beachvolley 2018 Kamp5"
+    }
+  ];
+
   search = (text$: Observable<string>) => {
     return text$
     .debounceTime(200)
@@ -48,17 +70,5 @@ export class HomeComponent implements OnInit {
 
   submit() {
     
-  }
-
-  btn1() {
-    this.popupService.popupMessage(true, {
-      header: "Wow a header",
-      body: "Now i have set at new body",
-      buttons: PopupButtonsType.Ok
-    });
-  }
-
-  btn2() {
-    this.popupService.popupMessage(false);
   }
 }

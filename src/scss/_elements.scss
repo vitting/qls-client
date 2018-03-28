@@ -5,6 +5,7 @@
 .qls-title {
     font-size: 1.5rem;
     margin-bottom: 20px;
+    color: $qls-text-color;
 }
 
 .qls-underline {
@@ -15,6 +16,34 @@
     background-color: $qls-bg-color;
     color: $qls-text-color;
     border-color: $qls-border-color;
+}
+
+.qls-btn:disabled, .qls-btn:disabled:hover {
+    background-color: darken($qls-bg-color, 20%);
+    color: darken($qls-text-color, 20%);
+    border-color: darken($qls-border-color, 20%);
+    cursor: not-allowed;
+}
+
+.qls-btn:hover {
+    background-color: darken($qls-bg-color, 10%);
+}
+
+.qls-btn-popup {
+    background-color: $qls-bg-popup-color;
+    color: $qls-text-color;
+    border-color: $qls-border-color;
+}
+
+.qls-btn-popup:hover {
+    background-color: darken($qls-bg-popup-color, 10%);
+}
+
+.qls-btn-popup:disabled, .qls-btn-popup:disabled:hover {
+    background-color: darken($qls-bg-popup-color, 20%);
+    color: darken($qls-text-color, 20%);
+    border-color: darken($qls-border-color, 20%);
+    cursor: not-allowed;
 }
 
 .qls-btn-round {
@@ -110,12 +139,16 @@
 .qls-list-btn {
     ul {
         li {
-            a {
+            a, button {
                 border: 1px solid white;
                 padding: 10px;
                 text-align: center;
                 border-radius: 4px;
                 color: $qls-text-color;
+            }
+
+            button {
+                padding: 9px 10px 8px 10px;
             }
         }
     }
@@ -123,4 +156,17 @@
 
 .qls-icon {
     color: $qls-text-color;
+}
+
+.qls-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 5;
 }

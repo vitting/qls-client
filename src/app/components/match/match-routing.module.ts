@@ -8,6 +8,10 @@ const routes: Routes = [
       path: "match",
       component: MatchComponent
     },
+    {
+      path: "match/:id",
+      component: MatchComponent
+    }
 ];
 
 @NgModule({

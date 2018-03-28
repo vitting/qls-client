@@ -1,0 +1,25 @@
+<div class="qls-overlay"></div>
+<div class="qls-share">
+    <div class="qls-title qls-text-align-center">
+        Share Link
+    </div>
+    <form [formGroup]="shareForm" (ngSubmit)="submit()" novalidate>
+        <div class="form-group">
+            <label for="shareLink">Link to share</label>
+            <input id="shareLink" name="shareLink" type="text" class="form-control" formControlName="shareLink" value="http://sadasd/adasda-3423-erw-3242342" required>
+        </div>
+        <div class="form-group">
+            <label for="sharEmail">E-mail</label>
+            <input id="shareEmail" name="shareEmail" type="email" class="form-control" [(ngModel)]="shareEmail" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div>
+            <button type="button" class="btn qls-btn-popup" (click)="addEmail()">Add</button>
+        </div>
+        <div class="qls-share-email-container form-control">
+            <div [id]="e.id" class="qls-share-email-tag" *ngFor="let e of emails">{{e.email}}<i (click)="removeEmail(e)" class="fa fa-times-circle" aria-hidden="true"></i></div>
+        </div>   
+        <div>
+            <Button type="submit" class="btn qls-btn qls-btn-popup">Share</Button>
+        </div>   
+    </form>
+</div>

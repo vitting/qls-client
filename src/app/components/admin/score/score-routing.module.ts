@@ -8,6 +8,10 @@ const routes: Routes = [
       path: "admin/score",
       component: ScoreComponent
     },
+    {
+      path: "admin/score/:id",
+      component: ScoreComponent
+    },
 ];
 
 @NgModule({
