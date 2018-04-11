@@ -23,7 +23,7 @@
 .qls-share-email-container {
     background-color: white;
     width: 100%;
-    min-height: 45px;
+    min-height: 47px;
     padding: 5px 0 0 0;
     margin-bottom: 20px;
     margin-top: 20px;
@@ -32,11 +32,17 @@
         display: inline-block;
         background-color: $qls-bg-popup-color;
         color: $qls-text-color;
-        padding: 4px;
+        padding: 5px;
         border-radius: 5px;
         margin-bottom: 5px;
         margin-left: 5px;
-        
+
+        .qls-share-email-tag-address {
+            @media only screen and (max-device-width : 375px) {
+                font-size: 0.5rem;
+            }
+        }
+
         i {
             font-size: 1.4rem;
             margin-left: 5px;

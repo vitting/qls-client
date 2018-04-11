@@ -16,7 +16,12 @@
             <button type="button" class="btn qls-btn-popup" (click)="addEmail()">Add</button>
         </div>
         <div class="qls-share-email-container form-control">
-            <div [id]="e.id" class="qls-share-email-tag" *ngFor="let e of emails">{{e.email}}<i (click)="removeEmail(e)" class="fa fa-times-circle" aria-hidden="true"></i></div>
+            <div [id]="e.id" class="qls-share-email-tag" *ngFor="let e of emails">
+                <div class="qls-flex">
+                    <div class="qls-share-email-tag-address qls-flex-align-self-center">{{e.email}}</div>
+                    <i (click)="removeEmail(e)" class="fa fa-times-circle" aria-hidden="true"></i>
+                </div>
+            </div>
         </div>   
         <div>
             <Button type="submit" class="btn qls-btn qls-btn-popup">Share</Button>

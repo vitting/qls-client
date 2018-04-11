@@ -4,6 +4,10 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
+import { AngularFireModule } from "angularfire2";
+import { AngularFirestoreModule } from "angularfire2/firestore";
+import { AngularFireAuthModule } from "angularfire2/auth";
+import { environment } from "../environments/environment";
 import { NavbarModule } from "./components/navbar/navbar.module";
 import { MatchModule } from "./components/match/match.module";
 import { AddEventModule } from "./components/admin/add_event/add_event.module";
@@ -24,6 +28,9 @@ import { ShareModule } from "./components/share/share.module";
     NgbModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
     NavbarModule,
     PopupModule,
     MatchModule,
