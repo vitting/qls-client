@@ -13,7 +13,7 @@ export class UserService {
             console.log("OK", data);
         }).catch((error) => {
             console.log("Error", error);
-        })
+        });
     }
 
     signinUser(email: string, password: string) {
