@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { UserService } from "../../services/user.service";
+import { QlsUserStatus } from "../../../interfaces/userStatus";
 
 @Component({
   selector: "qls-navbar",
@@ -6,13 +8,22 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./navbar.component.scss"]
 })
 export class NavbarComponent implements OnInit {
-  constructor() { }
-
+  showUser = false;
+  constructor(private userService: UserService) { }
+  
   ngOnInit() {
-    
+    this.userService.userStat().subscribe((userId) => {
+      this.showUser = userId ? true : false; 
+
+      if (userId) {
+        this.userService.getUser(userId).subscribe((user) => {
+          console.log(user);
+        });
+      }
+    });
   }
 
-  myFunction() {
+  navbarCollapse() {
     const x = document.getElementById("qlsNav");
     if (x.className === "topnav") {
         x.className += " responsive";
@@ -20,5 +31,6 @@ export class NavbarComponent implements OnInit {
         x.className = "topnav";
     }
   }
+
 
 }

@@ -1,6 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { AngularFireAuth } from "angularfire2/auth";
+import { Router } from "@angular/router";
+import { UserService } from "../../services/user.service";
+import { PopupService } from "../popup/popup.service";
+import { PopupButtonsType, PopupButtonResponse } from "../popup/popup.enums";
+
 
 @Component({
   selector: "qls-login",
@@ -8,84 +13,38 @@ import { AngularFireAuth } from "angularfire2/auth";
   styleUrls: ["./login.component.scss"]
 })
 export class LoginComponent implements OnInit {
-  model = {
-    "username": "",
-    "password": ""
-  };
   loginForm: FormGroup;
-  constructor(private _fb: FormBuilder, public afAuth: AngularFireAuth) { }
+  
+  constructor(
+    private fb: FormBuilder, 
+    private router: Router,
+    private userService: UserService,
+    private popupService: PopupService) { }
 
   ngOnInit() {
-    this.loginForm = this._fb.group({
-      "username": ["", Validators.required],
+    this.loginForm = this.fb.group({
+      "email": ["", Validators.required],
       "password": ["", Validators.required]
     });
   }
 
   submit() {
-    this.afAuth.auth.signInAndRetrieveDataWithEmailAndPassword("cvn7@vitting.dk", "password1234").then((data) => {
-      console.log(data);
-    });
-  }
+    if (this.loginForm.valid) {
+      this.userService.signInUser(this.loginForm.value.email, this.loginForm.value.password).then((d) => {
+        this.popupService.popupMessage(true, {
+          body: "You are logged in. Go to your dashboard.",
+          buttons: PopupButtonsType.Ok
+        });
 
-  test() {
-    // this.afAuth.authState.subscribe((user) => {
-    //   if (user) {
-    //     console.log(user.toJSON());
-    //   }
-    // });
-    // this.afAuth.auth.currentUser.getIdToken().then((data1) => {
-    //   console.log(data1);
-    // }).catch((error1) => {
-    //   console.log(error1);
-    // });
-    this.afAuth.auth.createUserAndRetrieveDataWithEmailAndPassword("cvn13@vitting.dk", "password1234").then((data) => {
-      // user.updateProfile({
-      //   displayName: "Christian Nicolaisen",
-      //   photoURL: ""      
-      // }).then((d) => {
-      //   console.log(d);
-      // }).catch((e) => {
-      //   console.log(e);
-      // });  
-
-      console.log(data);
-    }).catch((error) => {
-      console.log(error);
-    });
-  }
-
-  test2() {
-    this.afAuth.auth.signOut().then((data) => {
-      console.log(data);
-    }).catch((error) => {
-      console.log(error);
-    });
-  }
-
-  token() {
-    // this.afAuth.idToken.subscribe((data) => {
-    //   console.log(data);
-    // });
-    
-
-    // console.log(this.afAuth.auth.currentUser.toJSON());
-
-    // this.afAuth.auth.currentUser.getIdToken().then((data) => {
-    //   console.log(data);
-    // }).catch((error) => {
-    //   console.log(error);
-    // });
-
-    console.log(this.afAuth.auth.currentUser.displayName);
-
-    // this.afAuth.auth.currentUser.updateProfile({
-    //   displayName: "Christian Nicolaisen",
-    //   photoURL: ""
-    // }).then((d) => {
-    //   console.log(d);
-    // }).catch((e) => {
-    //   console.log(e);
-    // });
+        this.popupService.popupResponse$.subscribe((res) => {
+          if (res === PopupButtonResponse.Ok) {
+            this.popupService.popupMessage(false);
+            this.router.navigate(["/admin/dashboard"]); 
+          }
+        });
+      }).catch((error) => {
+        console.log(error);
+      });
+    }
   }
 }

@@ -29,7 +29,7 @@ export class PopupComponent implements OnInit {
       if (settings.header) {
         this.header = settings.header;
       }
-      
+        
       this.body = settings.body;
 
       if (settings.buttons) {

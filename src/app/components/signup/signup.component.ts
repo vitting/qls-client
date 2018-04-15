@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { AngularFireAuth } from "angularfire2/auth";
 import { UserService } from "../../services/user.service";
 
 @Component({
@@ -9,11 +8,12 @@ import { UserService } from "../../services/user.service";
   styleUrls: ["./signup.component.scss"]
 })
 export class SignupComponent implements OnInit {
+  // Kan måske slettes
   model = {
     "name": "Christian Nicolaisen",
     "email": "cvn@nymail.dk",
     "mobile": "34344334",
-    "password": "1235"
+    "password": "Password1235"
   };
 
   signupForm: FormGroup;
@@ -30,10 +30,12 @@ export class SignupComponent implements OnInit {
   }
 
   submit() {
-    this._userService.createUser(this.model.email, this.model.password);
-
     if (this.signupForm.valid) {
-
+      this._userService.createUser(this.signupForm.value).then((d) => {
+        console.log(d.toString());
+      }).catch((e) => {
+        console.log(e.toString());
+      });
     }
   }
 }

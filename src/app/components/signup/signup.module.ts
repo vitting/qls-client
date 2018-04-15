@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { SignupRoutingModule } from "./signup-routing.module";
 import { SignupComponent } from "./signup.component";
 import { UserService } from "../../services/user.service";
+import { ErrorService } from "../../services/error.service";
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { UserService } from "../../services/user.service";
     SignupComponent
   ],
   providers: [
-    UserService
+    UserService,
+    ErrorService
   ]
 })
 
