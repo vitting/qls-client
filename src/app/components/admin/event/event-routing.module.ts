@@ -1,13 +1,13 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
-import { AddMatchComponent } from "./add_match.component";
+import { EventComponent } from "./event.component";
 import { CanActiveAuthUser } from "../../../services/auth-guard.service";
 
 const routes: Routes = [
     {
-      path: "admin/addmatch",
-      component: AddMatchComponent,
+      path: "admin/:id/event",
+      component: EventComponent,
       canActivate: [CanActiveAuthUser]
     },
 ];
@@ -15,6 +15,8 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
-  providers: [CanActiveAuthUser]
+  providers: [
+    CanActiveAuthUser
+  ]
 })
-export class AddMatchRoutingModule { }
+export class EventRoutingModule { }

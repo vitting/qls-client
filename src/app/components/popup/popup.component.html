@@ -5,7 +5,7 @@
   <div class="qls-popup-body qls-flex-align-self-center">
     {{body}}
   </div>
-  <div class="qls-popup-buttons qls-flex-align-self-center">
+  <div class="qls-popup-buttons qls-flex-align-self-center" *ngIf="showButtons">
     <button type="button" class="btn" *ngIf="showYesButton" (click)="popupResponse(button1Response)">{{button1Text}}</button>
     <button type="button" class="btn" (click)="popupResponse(button2Response)">{{button2Text}}</button>
   </div>

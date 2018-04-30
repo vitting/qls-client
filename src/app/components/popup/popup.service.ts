@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs/Subject";
 import { PopupSettings } from "./popup.interfaces";
-import { PopupButtonResponse } from "./popup.enums";
+import { PopupButtonResponse, PopupButtonsType } from "./popup.enums";
 
 @Injectable()
 export class PopupService {

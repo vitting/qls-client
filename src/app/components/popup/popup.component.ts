@@ -19,6 +19,7 @@ export class PopupComponent implements OnInit {
   button2Text = "";
   button1Response: PopupButtonResponse;
   button2Response: PopupButtonResponse;
+  showButtons: true;
 
   constructor(private popupService: PopupService) { }
 
@@ -33,8 +34,14 @@ export class PopupComponent implements OnInit {
       this.body = settings.body;
 
       if (settings.buttons) {
-        this.buttons = settings.buttons;
-        this.initPopup(this.buttons);
+        if (settings.buttons !== PopupButtonsType.NoButtons) {
+          this.buttons = settings.buttons;
+          this.initPopup(this.buttons);
+        } else {
+          setTimeout(() => {
+            this.show = false;
+          }, 2000);
+        }
       }
     });
 

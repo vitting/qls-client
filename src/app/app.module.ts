@@ -9,9 +9,8 @@ import { AngularFirestoreModule } from "angularfire2/firestore";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { environment } from "../environments/environment";
 import { NavbarModule } from "./components/navbar/navbar.module";
-import { MatchModule } from "./components/match/match.module";
-import { AddEventModule } from "./components/admin/add_event/add_event.module";
-import { AddMatchModule } from "./components/admin/add_match/add_match.module";
+import { EventModule } from "./components/admin/event/event.module";
+import { MatchModule } from "./components/admin/match/match.module";
 import { DashboardModule } from "./components/admin/dashboard/dashboard.module";
 import { LoginModule } from "./components/login/login.module";
 import { ScoreModule } from "./components/admin/score/score.module";
@@ -20,6 +19,7 @@ import { HomeModule } from "./components/home/home.module";
 import { PopupModule } from "./components/popup/popup.module";
 import { ShareModule } from "./components/share/share.module";
 import { SettingsModule } from "./components/admin/settings/settings.module";
+import { CategoryModule } from "./components/admin/category/category.module";
 
 @NgModule({
   declarations: [
@@ -35,15 +35,16 @@ import { SettingsModule } from "./components/admin/settings/settings.module";
     NavbarModule,
     PopupModule,
     MatchModule,
-    AddEventModule,
-    AddMatchModule,
+    EventModule,
+    MatchModule,
     DashboardModule,
     LoginModule,
     ScoreModule,
     SignupModule,
     HomeModule,
     ShareModule,
-    SettingsModule
+    SettingsModule,
+    CategoryModule
   ],
   providers: [],
   bootstrap: [AppComponent],

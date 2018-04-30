@@ -9,16 +9,19 @@ import { QlsUserStatus } from "../../../interfaces/userStatus";
 })
 export class NavbarComponent implements OnInit {
   showUser = false;
+  userId;
   constructor(private userService: UserService) { }
   
   ngOnInit() {
     this.userService.userStat().subscribe((userId) => {
       this.showUser = userId ? true : false; 
-
+      
       if (userId) {
-        this.userService.getUser(userId).subscribe((user) => {
-          console.log(user);
-        });
+        this.userId = userId;
+        
+        // this.userService.getUser(userId).subscribe((user) => {
+        //   console.log(user);
+        // });
       }
     });
   }

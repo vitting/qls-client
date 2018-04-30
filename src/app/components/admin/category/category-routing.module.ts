@@ -1,13 +1,13 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
-import { AddEventComponent } from "./add_event.component";
+import { CategoryComponent } from "./category.component";
 import { CanActiveAuthUser } from "../../../services/auth-guard.service";
 
 const routes: Routes = [
     {
-      path: "admin/addevent",
-      component: AddEventComponent,
+      path: "admin/:id/category",
+      component: CategoryComponent,
       canActivate: [CanActiveAuthUser]
     },
 ];
@@ -19,4 +19,4 @@ const routes: Routes = [
     CanActiveAuthUser
   ]
 })
-export class AddEventRoutingModule { }
+export class CategoryRoutingModule { }

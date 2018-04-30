@@ -3,10 +3,14 @@
   <a [routerLink]="['/login']" [routerLinkActive]="'active'">Login</a>
   <a [routerLink]="['/signup']" [routerLinkActive]="'active'">Signup</a>
   <a [routerLink]="['/match']" [routerLinkActive]="'active'">Match</a>
-  <a [routerLink]="['/admin/addevent']" [routerLinkActive]="'active'">AddEvent</a>
-  <a [routerLink]="['/admin/addmatch']" [routerLinkActive]="'active'">AddMatch</a>
-  <a [routerLink]="['/admin/dashboard']" [routerLinkActive]="'active'">Dashboard</a>
-  <a [routerLink]="['/admin/score']" [routerLinkActive]="'active'">Score</a>
+  <div *ngIf="showUser">
+    <a [routerLink]="['/admin', userId, 'event']" [routerLinkActive]="'active'">Events</a>
+    <a [routerLink]="['/admin', userId, 'match']" [routerLinkActive]="'active'">Matchs</a>
+    <a [routerLink]="['/admin', userId, 'category']" [routerLinkActive]="'active'">Categories</a>
+    <a [routerLink]="['/admin', userId, 'dashboard']" [routerLinkActive]="'active'">Dashboard</a>
+    <a [routerLink]="['/admin/score']" [routerLinkActive]="'active'">Score</a>
+  </div>
+  
   <span *ngIf="showUser">
     <a [routerLink]="['/admin/settings']"><i class="fa fa-smile-o" aria-hidden="true"></i></a>
   </span>

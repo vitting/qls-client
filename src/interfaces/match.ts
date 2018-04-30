@@ -1,16 +1,15 @@
 import { QlsBeachvolleyModel } from "./beachvolleyModel";
 
 export interface QlsMatch {
-    id?: string;
+    id: string;
     name: string;
     description?: string;
-    category: string;
+    categoryId: string;
     start: Date;
     end: Date;
     useLiveComments: boolean;
     enabled: boolean;
     liveComments?: QlsLiveComment[];
-    data?: QlsBeachvolleyModel[];
 }
 
 export interface QlsLiveComment {

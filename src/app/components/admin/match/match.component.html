@@ -1,0 +1,79 @@
+<div class="qls-flex qls-flex-direction qls-flex-align-items-center">
+  <div *ngIf="showEvents">
+    <div class="qls-events-title qls-title qls-spacer-padding">Events</div>
+  <div class="qls-matches-currentevents qls-form-width">
+      <div class="form-group">
+          <label for="currentEvent">Your events</label>
+          <select class="form-control" id="currentEvent" name="currentEvent" (change)="currentEventSelected($event.target.value)">
+            <option value="0" selected>Select a event</option>
+            <option *ngFor="let event of currentEvents | async" [value]="event.id">{{event.name}}</option>  
+          </select>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="qls-flex qls-matches">
+  <div class="qls-matches-container" *ngIf="showMatchContainer">
+    <div class="qls-matches-title qls-title qls-spacer-padding">Matches</div>
+    <div class="qls-matches-controls">
+      <button type="button" class="btn qls-btn" (click)="action('add')">Add</button>
+      <button type="button" class="btn qls-btn" (click)="action('edit')">Edit</button>
+      <button type="button" class="btn qls-btn" (click)="action('remove')">Remove</button>
+    </div>
+    <div class="qls-addmatch-data" *ngIf="showData">
+      <div class="qls-matches-currentmatches qls-matches-form qls-form-width" *ngIf="showCurrentData">
+        <form [formGroup]="currentDataForm">
+          <div class="form-group">
+            <label for="currentMatch">Your matches</label>
+            <select class="form-control" id="currentMatch" name="currentMatch" formControlName="currentData" (change)="currentDataSelected($event.target.value)">
+              <option value="0" selected>Select a match</option>
+              <option *ngFor="let match of currentData | async" [value]="match.id">{{match.name}}</option>  
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="qls-matches-form qls-form-width" *ngIf="showForm">
+        <form [formGroup]="dataForm" (ngSubmit)="submit()">
+          <div class="form-group">
+            <label for="categori">Categories</label>
+            <select class="form-control" id="category" name="category" formControlName="category">
+              <option value="0" selected>Select a category</option>
+              <option *ngFor="let category of currentCategories | async" [value]="category.id">{{category.name}}</option>  
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" formControlName="name" placeholder="Enter match name">
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" id="description" name="description" formControlName="description" placeholder="Enter description">
+          </div>
+          <div class="form-group">
+            <label for="start">Start</label>
+            <div class="qls-flex">
+              <input type="time" class="form-control qls-form-control-time" id="starttime" name="starttime" formControlName="starttime">
+              <span class="qls-form-plaintext">-</span>
+              <input type="date" class="form-control qls-form-control-date" id="startdate" name="startdate" formControlName="startdate">
+            </div>  
+          </div>
+          <div class="form-group">
+            <label for="endtime">End</label>
+            <div class="qls-flex">
+              <input type="time" class="form-control qls-form-control-time" id="endtime" name="endtime" formControlName="endtime">
+              <span class="qls-form-plaintext">-</span>
+              <input type="date" class="form-control qls-form-control-date" id="enddate" name="enddate" formControlName="enddate">
+            </div>  
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="useLiveComments" name="userLiveComments" formControlName="useLiveComments">
+            <label class="form-check-label" for="useLiveComments">
+              Use live comments
+            </label>
+          </div>
+          <button type="submit" class="btn qls-btn">{{submitBtnText}}</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,20 +1,21 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { AddEventRoutingModule } from "./add_event-routing.module";
-import { AddEventComponent } from "./add_event.component";
+import { EventRoutingModule } from "./event-routing.module";
+import { EventComponent } from "./event.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { ReactiveFormsModule } from "@angular/forms";
+import { PopupService } from "../../popup/popup.service";
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
     NgbModule, 
-    AddEventRoutingModule
+    EventRoutingModule
   ],
   declarations: [
-    AddEventComponent
+    EventComponent
   ],
-  providers: []
+  providers: [PopupService]
 })
-export class AddEventModule { }
+export class EventModule { }

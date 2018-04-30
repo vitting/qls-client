@@ -1,4 +1,5 @@
 export interface QlsBeachvolleyModel {
+    id: string;
     name: QlsBeachvolleyModelName;
     points: QlsBeachvolleyModelPoints;
     timeouts: QlsBeachvolleyModelTimeouts;
@@ -23,13 +24,12 @@ export interface QlsBeachvolleyModelTimeouts {
 }
 
 export enum QlsBeachvolleyModelUpdateReason {
-    GameStart,
-    GameEnd,
-    SetA,
-    SetB,
-    PointA,
-    PointB,
-    TimeoutA,
-    TimeoutB
+    GameStart = "GAMESTART",
+    GameEnd = "GAMEEND",
+    SetA = "SETA",
+    SetB = "SETB",
+    PointA = "POINTA",
+    PointB = "POINTB",
+    TimeoutA = "TIMEOUTA",
+    TimeoutB = "TIMEOUTB"
 }
-
