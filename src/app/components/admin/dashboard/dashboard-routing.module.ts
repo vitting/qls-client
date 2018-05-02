@@ -6,7 +6,7 @@ import { CanActiveAuthUser } from "../../../services/auth-guard.service";
 
 const routes: Routes = [
     {
-      path: "admin/dashboard",
+      path: "admin/:id/dashboard",
       component: DashboardComponent,
       canActivate: [CanActiveAuthUser]
     },

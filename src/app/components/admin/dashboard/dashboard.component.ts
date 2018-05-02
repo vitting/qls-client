@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { AngularFirestore } from "angularfire2/firestore";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "qls-admin-dashboard",
@@ -6,6 +8,8 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./dashboard.component.scss"]
 })
 export class DashboardComponent implements OnInit {
+  private userId: string;
+
   last5Events = [
     {
       id: "t65434-345-tg43-43ert34",
@@ -52,13 +56,23 @@ export class DashboardComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private afs: AngularFirestore) { }
 
   ngOnInit() {
-    
+    this.setUserId();  
+  }
+
+  private setUserId() {
+    this.userId = this.route.snapshot.paramMap.get("id");
   }
 
   shareLink(type: string, data: any) {
     console.log(type, data);
+  }
+
+  test() {
+    this.afs.collection<any>("usermetas").doc(this.userId).set({
+      id: this.userId
+    });
   }
 }

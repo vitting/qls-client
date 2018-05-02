@@ -8,6 +8,7 @@ import { ActivatedRoute } from "@angular/router";
 import { QlsMatch } from "../../../../interfaces/match";
 import { PopupButtonsType } from "../../popup/popup.enums";
 import { PopupService } from "../../popup/popup.service";
+import { UtilityService } from "../../../services/utility.service";
 
 @Component({
   selector: "qls-admin-event",
@@ -29,7 +30,9 @@ export class EventComponent implements OnInit {
   constructor(
     private route: ActivatedRoute, 
     private _fb: FormBuilder, 
-    private afs: AngularFirestore, private popupService: PopupService) {}
+    private afs: AngularFirestore, 
+    private utilityService: UtilityService,
+    private popupService: PopupService) {}
 
   ngOnInit() {
     this.setUserId();
@@ -90,10 +93,10 @@ export class EventComponent implements OnInit {
           this.addDataForm.setValue({
             name: doc.name,
             description: doc.description,
-            starttime: this.getTimeFromDate(doc.start),
-            startdate: this.getDateFromDate(doc.start),
-            endtime: this.getTimeFromDate(doc.end),
-            enddate: this.getDateFromDate(doc.end)
+            starttime: this.utilityService.getTimeFromDate(doc.start),
+            startdate: this.utilityService.getDateFromDate(doc.start),
+            endtime: this.utilityService.getTimeFromDate(doc.end),
+            enddate: this.utilityService.getDateFromDate(doc.end)
           });
 
           this.showForm = true;
@@ -119,7 +122,7 @@ export class EventComponent implements OnInit {
   }
 
   private initForms() {
-    const currentDate = this.getDateFromDate(new Date(Date.now()));
+    const currentDate = this.utilityService.getDateFromDate(new Date(Date.now()));
 
     this.currentDataForm = this._fb.group({
       "currentEvent": ""
@@ -162,8 +165,8 @@ export class EventComponent implements OnInit {
       users: user,
       name: this.addDataForm.value.name,
       description: this.addDataForm.value.description,
-      start: this.createDateString(this.addDataForm.value.startdate, this.addDataForm.value.starttime),
-      end: this.createDateString(this.addDataForm.value.enddate, this.addDataForm.value.endtime),
+      start: this.utilityService.createDateString(this.addDataForm.value.startdate, this.addDataForm.value.starttime),
+      end: this.utilityService.createDateString(this.addDataForm.value.enddate, this.addDataForm.value.endtime),
       enabled: true
     };
     
@@ -179,8 +182,8 @@ export class EventComponent implements OnInit {
     const event = {
       name: this.addDataForm.value.name,
       description: this.addDataForm.value.description,
-      start: this.createDateString(this.addDataForm.value.startdate, this.addDataForm.value.starttime),
-      end: this.createDateString(this.addDataForm.value.enddate, this.addDataForm.value.endtime),
+      start: this.utilityService.createDateString(this.addDataForm.value.startdate, this.addDataForm.value.starttime),
+      end: this.utilityService.createDateString(this.addDataForm.value.enddate, this.addDataForm.value.endtime),
       enabled: true
     };
 
@@ -199,28 +202,5 @@ export class EventComponent implements OnInit {
     }).catch((e) => {
       console.log(e);
     });
-  }
-
-  private createDateString(dateString: string, timeString: string) {
-    return new Date(`${dateString}T${timeString}Z`);
-  }
-
-  private getTimeFromDate(date: Date) {
-    let hours = date.getUTCHours().toString();
-    let minutes = date.getUTCMinutes().toString();
-    
-    if (date.getUTCHours() < 10) {
-      hours = `0${hours}`;
-    }
-
-    if (date.getUTCMinutes() < 10) {
-      minutes = `0${minutes}`;
-    }
-
-    return `${hours}:${minutes}`;
-  }
-
-  private getDateFromDate(date: Date) {
-    return date.toJSON().slice(0, 10);
   }
 }
