@@ -6,6 +6,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { ReactiveFormsModule } from "@angular/forms";
 import { PopupService } from "../../popup/popup.service";
 import { UtilityService } from "../../../services/utility.service";
+import { UserMetaService } from "../../../services/usermeta.service";
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { UtilityService } from "../../../services/utility.service";
   ],
   providers: [
     PopupService,
-    UtilityService
+    UtilityService,
+    UserMetaService
   ]
 })
 export class EventModule { }

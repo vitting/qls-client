@@ -1,9 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { Observable } from "rxjs/Observable";
-import "rxjs/add/operator/map";
-import "rxjs/add/operator/debounceTime";
-import "rxjs/add/operator/distinctUntilChanged";
+import { Observable } from "rxjs";
+import { map, debounceTime, distinctUntilChanged } from "rxjs/operators";
 import { PopupService } from "../popup/popup.service";
 import { PopupButtonsType, PopupButtonResponse } from "../popup/popup.enums";
 
@@ -48,11 +46,8 @@ export class HomeComponent implements OnInit {
   ];
 
   search = (text$: Observable<string>) => {
-    return text$
-    .debounceTime(200)
-    .distinctUntilChanged()
-    .map(term => term.length < 2 ? []
-      : states.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10));
+    return text$.pipe(debounceTime(200)).pipe(distinctUntilChanged()).pipe(map(term => term.length < 2 ? []
+      : states.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10)));
   }
   
 

@@ -20,10 +20,11 @@ import { PopupModule } from "./components/popup/popup.module";
 import { ShareModule } from "./components/share/share.module";
 import { SettingsModule } from "./components/admin/settings/settings.module";
 import { CategoryModule } from "./components/admin/category/category.module";
+import { TestModule } from "./test/test.module";
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -44,7 +45,8 @@ import { CategoryModule } from "./components/admin/category/category.module";
     HomeModule,
     ShareModule,
     SettingsModule,
-    CategoryModule
+    CategoryModule,
+    TestModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { AngularFirestore, AngularFirestoreCollection, DocumentChangeAction } from "angularfire2/firestore";
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs";
 import { QlsEvent } from "../../../../interfaces/event";
 import { QlsActions } from "../../../../interfaces/actions";
 import { ActivatedRoute } from "@angular/router";
@@ -9,6 +9,7 @@ import { QlsMatch } from "../../../../interfaces/match";
 import { PopupButtonsType } from "../../popup/popup.enums";
 import { PopupService } from "../../popup/popup.service";
 import { UtilityService } from "../../../services/utility.service";
+import { UserMetaService } from "../../../services/usermeta.service";
 
 @Component({
   selector: "qls-admin-event",
@@ -31,11 +32,13 @@ export class EventComponent implements OnInit {
     private route: ActivatedRoute, 
     private _fb: FormBuilder, 
     private afs: AngularFirestore, 
+    private userMetaService: UserMetaService,
     private utilityService: UtilityService,
     private popupService: PopupService) {}
 
   ngOnInit() {
     this.setUserId();
+    this.userMetaService.setUser(this.userId);
     this.initForms();
     this.initCurrentData();
   }
@@ -173,6 +176,7 @@ export class EventComponent implements OnInit {
     this.afs.collection<QlsEvent>("events").doc(id).set(event).then(() => {
       this.message("Event is added");
       this.afterSubmit();
+      this.userMetaService.setEvent(this.userId, event.id, event.name);
     }).catch((e) => {
       console.log(e);
     }); 
@@ -190,6 +194,7 @@ export class EventComponent implements OnInit {
     this.afs.collection<QlsEvent>("events").doc(this.selectedDataId).update(event).then(() => {
       this.message("Event is updated");
       this.afterSubmit();
+      this.userMetaService.setEvent(this.userId, this.selectedDataId, event.name);
     }).catch((e) => {
       console.log(e);
     });
@@ -199,6 +204,7 @@ export class EventComponent implements OnInit {
     this.afs.collection<QlsEvent>("events").doc(this.selectedDataId).delete().then(() => {
       this.message("Event is deleted");
       this.afterSubmit();
+      this.userMetaService.deleteEvent(this.userId, this.selectedDataId);
     }).catch((e) => {
       console.log(e);
     });

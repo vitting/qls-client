@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Params } from "@angular/router";
-import "rxjs/add/operator/map";
+import { map } from "rxjs/operators";
 
 @Component({
   selector: "qls-admin-score",
@@ -28,9 +28,9 @@ export class ScoreComponent implements OnInit {
   constructor(private _route: ActivatedRoute) { }
 
   ngOnInit() {
-    this._route.paramMap.map((params: Params) => {
+    this._route.paramMap.pipe(map((params: Params) => {
       return params.get("id");
-    }).subscribe((id: string) => {
+    })).subscribe((id: string) => {
       console.log(id);
     });
   }

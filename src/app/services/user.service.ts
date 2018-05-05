@@ -1,11 +1,11 @@
 import { Injectable } from "@angular/core";
 import { AngularFireAuth } from "angularfire2/auth";
 import { AngularFirestore, AngularFirestoreCollection, DocumentChangeAction, AngularFirestoreDocument } from "angularfire2/firestore";
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs";
 import { QlsUser } from "../../interfaces/user";
 import { ErrorService } from "./error.service";
 import { QlsUserStatus } from "../../interfaces/userStatus";
-import "rxjs/add/operator/take";
+import { take } from "rxjs/operators";
 
 @Injectable()
 export class UserService {

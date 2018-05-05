@@ -7,14 +7,14 @@ export class UserMetaService {
 
     constructor(private afs: AngularFirestore) { }
 
-    setUser(userId) {
-        this.afs.collection<UserMeta>("usermetas").doc(userId).set({
+    setUser(userId: string) {
+        return this.afs.collection<UserMeta>("usermetas").doc(userId).set({
             id: userId
         }, { merge: true});
     }
 
-    setEvent(userId, eventId, eventName) {
-        this.afs
+    setEvent(userId: string, eventId: string, eventName: string) {
+        return this.afs
         .collection<UserMeta>("usermetas").doc(userId)
         .collection<UserMetaEvent>("events").doc(eventId).set({
             eventId: eventId,
@@ -23,8 +23,8 @@ export class UserMetaService {
         }, {merge: true});
     }
 
-    setMatch(userId, eventId, matchId, matchName) {
-        this.afs
+    setMatch(userId: string, eventId: string, matchId: string, matchName: string) {
+        return this.afs
         .collection<UserMeta>("usermetas").doc(userId)
         .collection<UserMetaMatch>("matches").doc(matchId).set({
             eventId: eventId,
@@ -34,5 +34,16 @@ export class UserMetaService {
         }, {merge: true});
     }
 
+    deleteEvent(userId: string, eventId: string) {
+        return this.afs
+        .collection<UserMeta>("usermetas").doc(userId)
+        .collection<UserMetaEvent>("events").doc(eventId).delete();
+    }
 
+    deleteMatch(userId: string, eventId: string, matchId: string) {
+        return this.afs
+        .collection<UserMeta>("usermetas")
+        .doc(userId).collection<UserMetaEvent>("events").doc(eventId)
+        .collection<UserMetaMatch>("matches").doc(matchId).delete();
+    }
 }

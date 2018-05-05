@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { AngularFirestore, AngularFirestoreCollection, DocumentChangeAction, AngularFirestoreDocument } from "angularfire2/firestore";
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs";
 import { QlsEvent } from "../../../../interfaces/event";
 import { QlsActions } from "../../../../interfaces/actions";
 import { ActivatedRoute } from "@angular/router";
