@@ -8,14 +8,6 @@ import { UserService } from "../../services/user.service";
   styleUrls: ["./signup.component.scss"]
 })
 export class SignupComponent implements OnInit {
-  // Kan måske slettes
-  model = {
-    "name": "Christian Nicolaisen",
-    "email": "cvn@nymail.dk",
-    "mobile": "34344334",
-    "password": "Password1235"
-  };
-
   signupForm: FormGroup;
 
   constructor(private _fb: FormBuilder, private _userService: UserService) { }

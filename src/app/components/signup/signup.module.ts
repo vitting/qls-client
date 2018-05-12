@@ -5,12 +5,14 @@ import { SignupRoutingModule } from "./signup-routing.module";
 import { SignupComponent } from "./signup.component";
 import { UserService } from "../../services/user.service";
 import { ErrorService } from "../../services/error.service";
+import { QlsMaterialModule } from "../../QlsMaterial/QlsMaterial.module";
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    SignupRoutingModule
+    SignupRoutingModule, 
+    QlsMaterialModule
   ],
   declarations: [
     SignupComponent

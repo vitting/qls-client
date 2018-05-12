@@ -1,3 +1,6 @@
+.form-control:focus {
+    border: none;
+}
 .qls-flex {
     display: flex;
 }
@@ -75,12 +78,20 @@
     width: 60vw;
 }
 
+.qls-flex-spacer {
+    flex: 1 1 auto;
+}
+
 .qls-flex-justify-space-between {
     justify-content: space-between;
 }
 
 .qls-flex-justify-center {
     justify-content: center;
+}
+
+.qls-flex-justify-end {
+    justify-content: flex-end;
 }
 
 .qls-flex-direction {

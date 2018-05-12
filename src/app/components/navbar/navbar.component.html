@@ -1,4 +1,23 @@
-<div class="topnav" id="qlsNav">
+<mat-toolbar class="qls-flex-justify-end" color="primary">
+  <mat-menu #appMenu="matMenu" [overlapTrigger]="false">
+    <a mat-menu-item [routerLink]="['/home']" [routerLinkActive]="'active'">Home</a>
+    <a mat-menu-item [routerLink]="['/login']" [routerLinkActive]="'active'">Login</a>
+    <a mat-menu-item [routerLink]="['/signup']" [routerLinkActive]="'active'">Signup</a>
+    <a mat-menu-item [routerLink]="['/match']" [routerLinkActive]="'active'">Match</a>
+    <div *ngIf="showUser">
+      <a mat-menu-item [routerLink]="['/admin', userId, 'event']" [routerLinkActive]="'active'">Events</a>
+      <a mat-menu-item [routerLink]="['/admin', userId, 'match']" [routerLinkActive]="'active'">Matchs</a>
+      <a mat-menu-item [routerLink]="['/admin', userId, 'category']" [routerLinkActive]="'active'">Categories</a>
+      <a mat-menu-item [routerLink]="['/admin', userId, 'dashboard']" [routerLinkActive]="'active'">Dashboard</a>
+      <a mat-menu-item [routerLink]="['/admin/score']" [routerLinkActive]="'active'">Score</a>
+      <a mat-menu-item [routerLink]="['/admin/settings']" [routerLinkActive]="'active'">Settings</a>
+    </div>
+  </mat-menu>
+  <button mat-icon-button [matMenuTriggerFor]="appMenu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+</mat-toolbar>
+<!-- <div class="topnav" id="qlsNav">
   <a [routerLink]="['/home']" [routerLinkActive]="'active'">Home</a>
   <a [routerLink]="['/login']" [routerLinkActive]="'active'">Login</a>
   <a [routerLink]="['/signup']" [routerLinkActive]="'active'">Signup</a>
@@ -9,10 +28,11 @@
     <a [routerLink]="['/admin', userId, 'category']" [routerLinkActive]="'active'">Categories</a>
     <a [routerLink]="['/admin', userId, 'dashboard']" [routerLinkActive]="'active'">Dashboard</a>
     <a [routerLink]="['/admin/score']" [routerLinkActive]="'active'">Score</a>
+
   </div>
   
   <span *ngIf="showUser">
     <a [routerLink]="['/admin/settings']"><i class="fa fa-smile-o" aria-hidden="true"></i></a>
   </span>
   <a href="javascript:void(0);" class="icon" (click)="navbarCollapse()">&#9776;</a>
-</div>
+</div> -->

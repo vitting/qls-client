@@ -1,9 +1,9 @@
 <div class="qls-flex qls-addevent">
   <div class="qls-addevent-title qls-title qls-spacer-padding">Events</div>
   <div class="qls-addevent-controls">
-    <button type="button" class="btn qls-btn" (click)="action('add')">Add</button>
-    <button type="button" class="btn qls-btn" (click)="action('edit')">Edit</button>
-    <button type="button" class="btn qls-btn" (click)="action('remove')">Remove</button>
+    <button mat-raised-button type="button" (click)="action('add')">Add</button>
+    <button mat-raised-button type="button" (click)="action('edit')">Edit</button>
+    <button mat-raised-button type="button" (click)="action('remove')">Remove</button>
   </div>
   <div class="qls-addevent-data" *ngIf="showData">
     <div class="qls-addevent-currentevents qls-addevent-form qls-form-width" *ngIf="showCurrentData">
