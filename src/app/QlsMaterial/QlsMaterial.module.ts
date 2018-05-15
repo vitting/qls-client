@@ -6,6 +6,9 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
+import {MatSelectModule} from "@angular/material/select";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import { MatNativeDateModule } from "@angular/material/core";
 
 @NgModule({
   imports: [
@@ -15,7 +18,10 @@ import {MatInputModule} from "@angular/material/input";
     MatToolbarModule,
     MatDividerModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   exports: [
     MatMenuModule,
@@ -24,7 +30,10 @@ import {MatInputModule} from "@angular/material/input";
     MatToolbarModule,
     MatDividerModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ]
 })
 export class QlsMaterialModule { }

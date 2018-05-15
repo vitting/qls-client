@@ -209,4 +209,8 @@ export class EventComponent implements OnInit {
       console.log(e);
     });
   }
+
+  test(id) {
+    console.log("CHANGE", id);
+  }
 }
